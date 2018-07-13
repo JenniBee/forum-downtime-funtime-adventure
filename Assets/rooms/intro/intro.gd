@@ -13,4 +13,4 @@ func _on_Timer2_timeout():
 	get_node("Godot").queue_free() 
 
 func _on_Timer3_timeout():
-	get_node("/root/constants").setScene("res://Assets/rooms/dialogtest/dialogtest.tscn") 
+	get_tree().change_scene("res://scenes/Escoria/MainSceneFin.scn") 

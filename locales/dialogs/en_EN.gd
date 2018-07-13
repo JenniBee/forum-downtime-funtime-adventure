@@ -346,7 +346,7 @@ var dialogue = [
 
 
 func newgame():
-	get_node("/root/database").dialogue = dialogue
+	get_node().dialogue = dialogue
 	queue_free()
 
 func refreshdb():#refresh the database with this translation

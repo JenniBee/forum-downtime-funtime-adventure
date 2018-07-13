@@ -1,0 +1,27 @@
+:talk
+
+> [!interact]
+	say player "Who's him?" default avatar_player
+> [interact]
+	? default avatar_player
+		- "Hello Paul Bunyan."
+			say paul "... " default avatar_paul
+			? default avatar_player
+				- "You don't talk much do you?"
+					say paul "..." default avatar_paul
+					? default avatar_player
+						- "You're not so great."
+							say player "You haven't done much besides stand there." default avatar_player
+							say player "The real Paul Bunyan would be ashamed." default avatar_player
+							say paul "Grr..." default avatar_paul
+							say player "Uh oh..." default avatar_player
+							change_scene "res://Assets/rooms/ending2/ending2.tscn"
+						- "Well, I see you don't want to talk."
+							say player "I'll leave you alone now" default avatar_player
+							say player "Sorry i disturbed you." default avatar_player
+							say paul "..." default avatar_paul
+							set global interact true
+				- "Home, home on the range."
+				- "Well, i see you don't want to talk."
+		- "How are you doing, Paul?"
+stop
