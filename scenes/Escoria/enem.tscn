@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://globals/item.gd" type="Script" id=1]
+
+[node name="enem" type="TextureFrame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 166.0
+margin/bottom = 152.0
+stretch_mode = 0
+script/script = ExtResource( 1 )
+animations = null
+speed = 300
+scale_on_map = false
+light_on_map = false
+tooltip = "Ice Cream"
+action = ""
+events_path = "res://scenes/Escoria/enem.esc"
+global_id = "enem"
+use_combine = false
+inventory = false
+use_action_menu = true
+interact_angle = -1
+talk_animation = "talk"
+active = true
+placeholders = {
+
+}
+use_custom_z = false
+
+

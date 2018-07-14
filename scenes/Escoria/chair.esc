@@ -1,0 +1,7 @@
+:talk
+
+> [!interact]
+	say player "Who's him?" default avatar_player
+> [interact]
+
+stop

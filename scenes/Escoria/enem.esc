@@ -1,0 +1,115 @@
+set global interact false
+:talk
+say player "Ugh.My head..." default avatar_player
+say enem "Huh? Holy Horseshoes!" default avatar_enem
+say enem "You're not Inspector Klein!" default avatar_enem
+say enem "Who are you? Some kinda hamster Avenger?" default avatar_enem
+? default avatar_player
+	- "Who's Inspector Klein?"
+		say enem "Ha! Ya hear that, Paul?" default avatar_enem
+		say enem "Rodent girl here doesn't know about Klein." default avatar_enem
+		say enem "He's the worst!" default avatar_enem
+		say enem "a pox on the face of wholesome family entertainment!" default avatar_enem
+		say enem "Always tryin' to shut me down." default avatar_enem
+		say enem "It's a disgrace!" default avatar_enem
+		say enem "Sure, I may have had to bend a few little health" default avatar_enem
+		say enem "and safety laws to make ends meet." default avatar_enem
+		say player "A few?" default avatar_player
+		say enem "Or a lot. Makes no difference. Any way..." default avatar_enem
+		say enem "Do you know what's wrong with kids these days?" default avatar_enem
+		say player "Well..." default avatar_player
+		say enem "They're always too busy playin' with their gatherin'" default avatar_enem
+		say enem "magic cards an' pok-e-mans" default avatar_enem
+		say enem "an' YouPages. They just don't want to get up" default avatar_enem
+		say enem "off their lazy butts and go" default avatar_enem
+		say enem "see some REAL entertainment. It's not like" default avatar_enem
+		say enem "anyone's died from falli'n off" default avatar_enem
+		say enem "the narrow viewin' platform above" default avatar_enem
+		say enem "the Gopher Saloon and Terrarium" default avatar_enem
+		say enem "Why should I have to pay forty bucks to" default avatar_enem
+		say enem "put up guard rails when I can put in a new" default avatar_enem
+		say enem "attraction, or get ta utilizin' the lastest and" default avatar_enem
+		say enem "greates in advertisin' thecnology?" default avatar_enem
+		say player "..." default avatar_player
+		say enem "Anyway, ya better hope Klein doesn't show" default avatar_enem
+		say enem "his ugly mug for a while," default avatar_enem
+		say enem "'cause I only got enough room in this trap" default avatar_enem
+		say enem "for one interloper." default avatar_enem
+		? default avatar_player
+			- "I've been locked in supply closets before."
+				say enem "But i betcha've never been locked in a supply" default avatar_enem	
+				say enem "closet with a state of the art" default avatar_enem
+				say enem "MECHA PAUL Bunyan!" default avatar_enem
+				say enem "I figured I might as well let" default avatar_enem
+				say enem "Paul here do the honors of finishing" default avatar_enem
+				say enem "Klein off, on account of the good inspector" default avatar_enem
+				say enem "deciding to close down" default avatar_enem	
+				say enem "Paul Bunyan's Authentic Clear Cuttin'" default avatar_enem
+				say enem "and Log Splittin' Show" default avatar_enem
+				say enem "because of a few splinters." default avatar_enem
+				say player "A tree branch is not a splinter." default avatar_player
+				say enem "Details." default avatar_enem	
+				? default avatar_player
+					- "That's and interesting robot."
+						say enem "Paul Bunyan here is only the lastest and greatest" default avatar_enem
+						say enem "in robot lumberjack technology." default avatar_enem
+						say enem "Cost me a fortune to build, and I had to evict" default avatar_enem
+						say enem "a few termites" default avatar_enem	
+						say enem "from the old ghost town to get enought wood to finish the" default avatar_enem
+						say enem "Loopy Llama Log Flume, but it was worth it." default avatar_enem
+						say enem "First, he's gonna chop you into chipmunk chunks" default avatar_enem
+						say enem "Then he'll move onto bigger prey when I trap that" default avatar_enem
+						say enem "no good, interfering safety inspector." default avatar_enem
+						? default avatar_player
+							- "Your park seems a bit, uh, dangerous."
+							- "You're thrifty. I get that."
+								say player "You want to save all the mouney you can" default avatar_player
+								say player "by getting great deals. I do too." default avatar_player
+								say player "Like this morning, I was jsut on wePay looking at" default avatar_player
+								say player "an auction for a dozen" default avatar_player
+								say player "claw machines. Las i looked, it had no bids," default avatar_player
+								say player "and it had a minimum of only a dollar." default avatar_player
+								say player "It's a shame I can't get to a computer right now, as the" default avatar_player
+								say player "auction is going to end in about thirty minutes." default avatar_player
+								say enem "Paul, you guard the prisoner." default avatar_enem
+								say enem "I have some urgent matters I need to attend to." default avatar_enem
+								set_global interact true
+							- "You're under arrest."
+								say player "You're under arrest. I know you're behind" default avatar_player
+								say player "those hypnotic ads." default avatar_player
+								say enem "Don't be stupid girl. Everyone knows" default avatar_enem
+								say enem "hypnotism is bupkis." default avatar_enem
+								say enem "All my ads do is plant subliminal messages" default avatar_enem
+								say enem "in folk's subconscius" default avatar_enem
+								say enem "makin them drop what they're doin" default avatar_enem
+								say enem "an' bring their life savings" default avatar_enem
+								say enem "down to Frontier World and Action Park" default avatar_enem
+								say enem "for some good" default avatar_enem
+								say enem "family entertainment." default avatar_enem
+								say player "Sounds like hypnosis to me." default avatar_player
+								say player "And unreliable hypnosis to boot." default avatar_player
+								say enem "Sure, it can take a few viewings for 'em to work," default avatar_enem
+								say enem "but the billboards work every time," default avatar_enem
+								say enem "thanks to the little radio transmitters" default avatar_enem
+								say enem "I stuck in 'em. Once I launch a satellitle" default avatar_enem
+								say enem "over the U S of A," default avatar_enem
+								say enem "I'll get people comin' in from all over the country." default avatar_enem
+								say enem "Heck, I'll probably get even get some Canadians" default avatar_enem
+								say player "That's insane!" default avatar_player
+								say enem "Maybe, but it's certainly profitable!" default avatar_enem
+								say enem "Once I get enough money, an' dispose of that" default avatar_enem
+								say enem "annoyin' inspector," default avatar_enem
+								say enem "I'll finally be able to open up that" default avatar_enem
+								say enem "miniature golf course" default avatar_enem
+								say enem "my pa always talked about buildin'" default avatar_enem
+								say player "you won't get away with this" default avatar_player
+								say enem "What? Oh, well, darn. Looks like ya got me to tell" default avatar_enem
+								say enem "ya my plans. Can't risk lettin ya escape now." default avatar_enem
+								say enem "Paul, let 'er have it." default avatar_enem
+								change_scene "res://Assets/rooms/ending1/ending1.tscn"
+					- "Your park seems a bit, uh, dangerous"					
+			- "Your park seems a bit, uh, dangerous."
+
+	- "I'm not a hamster themed hero! I'm..."
+	- "I'm selling these fine superhero costumes."
+stop		
