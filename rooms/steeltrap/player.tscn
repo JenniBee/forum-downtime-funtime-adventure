@@ -1,0 +1,176 @@
+[gd_scene load_steps=20 format=1]
+
+[ext_resource path="res://globals/player.gd" type="Script" id=1]
+[ext_resource path="res://characters/lemmingwoman/anims.gd" type="Script" id=2]
+[ext_resource path="res://characters/lemmingwoman/png/01.png" type="Texture" id=3]
+[ext_resource path="res://characters/lemmingwoman/png/02.png" type="Texture" id=4]
+[ext_resource path="res://characters/lemmingwoman/png/04.png" type="Texture" id=5]
+[ext_resource path="res://characters/lemmingwoman/png/07.png" type="Texture" id=6]
+[ext_resource path="res://characters/lemmingwoman/png/12.png" type="Texture" id=7]
+[ext_resource path="res://characters/lemmingwoman/png/51.png" type="Texture" id=8]
+[ext_resource path="res://characters/lemmingwoman/png/61.png" type="Texture" id=9]
+[ext_resource path="res://characters/lemmingwoman/png/chair/00.png" type="Texture" id=10]
+[ext_resource path="res://characters/lemmingwoman/png/chair/01.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "idle_down"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "idle_right"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "idle_up"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "in_chair"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 4.0
+loop = true
+step = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1, 2, 3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 0, 4 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 4.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1, 2, 3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 5, 1, 6 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 4.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1, 2, 3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 7, 2, 8 ]
+}
+
+[node name="player" type="Node2D"]
+
+script/script = ExtResource( 1 )
+speed = 300
+v_speed_damp = 1.0
+animations = ExtResource( 2 )
+camera_limits = Rect2( 0, 0, 0, 0 )
+telekinetic = false
+placeholders = {
+
+}
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( -16.731, -98.6292 )
+transform/scale = Vector2( 1.51807, 1.44414 )
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="animation" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 1.0
+root/root = NodePath("..")
+anims/idle_down = SubResource( 2 )
+anims/idle_right = SubResource( 3 )
+anims/idle_up = SubResource( 4 )
+anims/in_chair = SubResource( 5 )
+anims/walk_down = SubResource( 6 )
+anims/walk_right = SubResource( 7 )
+anims/walk_up = SubResource( 8 )
+playback/active = true
+playback/speed = 6.0
+blend_times = [  ]
+autoplay = ""
+
+
