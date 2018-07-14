@@ -7,7 +7,7 @@ var rectangleshape
 func input(viewport, event, shape_idx):
 	if event.type == InputEvent.MOUSE_BUTTON && event.pressed:
 		if (event.button_index == 1):
-			get_tree().call_group(0, "game", "clicked", self, get_pos() + Vector2(event.x, event.y))
+			get_tree().call_group(0, "game", "clicked", self, get_pos() + Vector2(event.x, event.y), BUTTON_LEFT)
 		elif (event.button_index == 2):
 			emit_right_click()
 
@@ -21,6 +21,8 @@ func _enter_tree():
 	# Use size of background texture to calculate collision shape
 	var background = get_parent().get_node("background")
 	if background:
+		printt("GET SIZE", background.get_size())
+
 		var size = background.get_size()
 		var extents = Vector2(size.x / 2, size.y / 2)
 		var transform = Matrix32(Vector2(1, 0), Vector2(0, 1), extents)
@@ -33,6 +35,6 @@ func _enter_tree():
 func _ready():
 	connect("input_event", self, "input")
 	add_to_group("background")
-
+	
 func emit_right_click():
 	emit_signal("right_click_on_bg")

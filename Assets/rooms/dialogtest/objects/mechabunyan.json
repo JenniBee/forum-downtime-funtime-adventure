@@ -1,6 +1,0 @@
-{
-    "primary_action": "look_at",
-    "secondary_action": "use",
-    "look_at": ["Thanks for freeing me, Mecha Bunyan." ],
-    "use": [ "I'm not touching that thing." ]
-}

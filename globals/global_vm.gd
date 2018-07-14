@@ -1,9 +1,13 @@
 extends Node
 
+var copcomplete
+var dougcomplete
+var spacecomplete
+var clockcomplete
+var endgame
 var stack = []
 var globals = {}
 var objects = {}
-
 var event_queue = []
 
 var state_return = 0
@@ -129,7 +133,7 @@ func drag_end():
 		printt("********** dragging ends")
 		if hover_object != null && !hover_object.inventory:
 			printt("calling clicked")
-			get_tree().call_group(0, "game", "clicked", hover_object, hover_object.get_pos())
+			get_tree().call_group(0, "game", "clicked", hover_object, hover_object.get_pos(), BUTTON_LEFT)
 			get_tree().call_group(0, "game", "clear_pending_command")
 		elif hover_object == null:
 			get_tree().call_group(0, "game", "clear_pending_command")

@@ -1,6 +1,0 @@
-{
-    "primary_action": "look_at",
-    "secondary_action": "use",
-    "look_at": ["He's not looking! Now's my chance!" ],
-    "use": [ "I can't reach it." ]
-}

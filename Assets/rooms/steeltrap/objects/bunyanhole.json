@@ -1,6 +1,0 @@
-{
-    "primary_action": "look_at",
-    "secondary_action": "use",
-    "look_at": ["It's my way out of here." ],
-    "use": [ "I'm not touching that thing." ]
-}

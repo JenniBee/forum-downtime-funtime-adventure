@@ -1,8 +1,0 @@
-{
-    "primary_action": "look_at",
-    "secondary_action": "use",
-    "look_at": ["I'm on the ground. Now what?"],
-    "use": [ "I can't move it any more." ]
-}
-
-

@@ -13,6 +13,7 @@ var min_interact_dist = 50*50
 var last_obj = null
 
 var current_action = ""
+var one_click_action = ""
 var current_tool = null
 
 var click
@@ -27,27 +28,33 @@ func set_mode(p_mode):
 func mouse_enter(obj):
 	var text
 	var tt = obj.get_tooltip()
-	if current_action != "" && current_tool != null:
-		text = tr(current_action + ".combine_id")
-		text = text.replace("%2", tr(tt))
+
+	if current_tool != null:
+		
+		text = "use.combine_id"
+		if current_action != "":
+			text = tr(tr(current_action) + ".combine_id")
+		text = tr(text.replace("%2", ".id"))
 		text = text.replace("%1", tr(current_tool.get_tooltip()))
+		text = text.replace("%2", tr(tt))
+		
 	elif obj.inventory:
-		var action = inventory.get_action()
+		var action = obj.action
 		if action == "":
 			action = current_action
-		text = tr(action + ".id")
-		text = text.replace("%1", tr(tt))
+		text = tr(action) + " " + tr(tt)
+		text = text.replace("%2", tr(tt))
 	else:
-		text = tt
+		text = tr(tt)
 	get_tree().call_group(0, "hud", "set_tooltip", text)
 	vm.hover_begin(obj)
 
 func mouse_exit(obj):
 	var text
-	#var tt = obj.get_tooltip()
-	if current_action != "" && current_tool != null:
-		text = tr(current_action + ".id")
-		text = text.replace("%1", tr(current_tool.get_tooltip()))
+	var tt = obj.get_tooltip()
+	if obj.action != "" && current_tool != null:
+		text = tr(obj.action) + " " + tr(tt)
+		text = text.replace("%2", tr(tt))
 	else:
 		text = ""
 	get_tree().call_group(0, "hud", "set_tooltip", text)
@@ -65,12 +72,7 @@ func set_current_action(p_act):
 func set_current_tool(p_tool):
 	current_tool = p_tool
 
-func clicked(obj, pos):
-	# If multiple areas are clicked at once, an item_background "wins"
-	if obj.get_type() == "Area2D":
-		for area in obj.get_overlapping_areas():
-			if area.has_method("is_clicked") and area.is_clicked():
-				return
+func clicked(obj, pos, button_index):
 	joystick_mode = false
 	if !vm.can_interact():
 		return
@@ -78,6 +80,8 @@ func clicked(obj, pos):
 		player = self
 	if mode == "default":
 		var action = obj.get_action()
+		if (button_index == BUTTON_RIGHT):
+			action = obj.get_secondary_action()
 		#action_menu.stop()
 		if action == "walk":
 
@@ -89,11 +93,15 @@ func clicked(obj, pos):
 			get_tree().call_group(0, "hud", "set_tooltip", "")
 
 		elif obj.inventory:
+			var one_click_action = obj.get_action()
+			if button_index == BUTTON_RIGHT:
+				one_click_action = obj.get_secondary_action()
 
-			if current_action == "use" && obj.use_combine && current_tool == null:
+			# NOTE! This makes it impossible to use a left-click "Action" in combination with a verb interface
+			if (current_action == "use" || one_click_action == "use") && obj.use_combine && current_tool == null:
 				set_current_tool(obj)
 			else:
-				interact([obj, current_action, current_tool])
+				interact([obj, current_action, current_tool], button_index)
 		elif action != "":
 			player.interact([obj, action, current_tool])
 		elif current_action != "":
@@ -106,9 +114,12 @@ func clicked(obj, pos):
 			player.walk_to(pos)
 			get_tree().call_group(0, "hud", "set_tooltip", "")
 
-		elif obj.use_action_menu && action_menu != null:
+		elif obj.use_action_menu && action_menu != null && current_tool == null:
 			spawn_action_menu(obj)
-
+		elif obj.use_action_menu && action_menu != null && current_tool != null:
+			obj.action = "use"
+			clicked(obj, pos, button_index)
+			obj.action = ""
 
 func spawn_action_menu(obj):
 	if action_menu == null:
@@ -132,13 +143,15 @@ func action_menu_selected(obj, action):
 		interact([obj, action])
 	action_menu.stop()
 
-func interact(p_params):
+func interact(p_params, button_index = BUTTON_LEFT):
 	if mode == "default":
 		var obj = p_params[0]
 		clear_action()
 		var action = p_params[1]
 		if !action:
 			action = obj.get_action()
+			if (button_index == BUTTON_RIGHT):
+				action = obj.get_secondary_action()
 
 		if p_params.size() > 2:
 			clear_action()

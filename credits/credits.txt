@@ -1,0 +1,16 @@
+Forum Downtime Funtime Adventure
+
+Contributors
+
+Jennifer McMurray (known on forums as Jenni, Jennifer, JenniBee)
+Cheeseness (also known as ValiantCheese)
+Feddlefew
+flesk (also known as fleskesvor)
+Reid_Harris_Cooper (also known as reidcooper)
+
+
+See github.com/double-fine-game-club/forum-downtime-funtime-adventure for an up to date list of contributors and contributions
+
+Technologies
+
+This game uses the MIT licenced Godot engine. Visit godotengine.org for more information.
